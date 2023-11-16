@@ -1,0 +1,973 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"codusu",
+				"codusuarioForm"
+			],
+			[
+				"atencion",
+				"atencionForm"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"g",
+				"getElementById"
+			],
+			[
+				"fECHA",
+				"Fecha_Creacion"
+			],
+			[
+				"Modu",
+				"ModuloPHP"
+			],
+			[
+				"font",
+				"font-size\tproperty"
+			],
+			[
+				"text",
+				"text-transform\tproperty"
+			],
+			[
+				"Cod",
+				"CodConversacion"
+			],
+			[
+				"ad",
+				"adjuntos/"
+			],
+			[
+				"re",
+				"required\tAttr"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "Encriptar.php",
+			"settings":
+			{
+				"buffer_size": 1164,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "<?php\n\n  date_default_timezone_set(\"America/Mexico_City\");\n  session_start();\n  ini_set(\"display_errors\",0);\n  include \"includes/bd.php\";\n\n  if (!$_SESSION['logued']) {\n      header(\"location:index.php\");\n      exit();\n  }\n\n    $Codigousuario = $_SESSION['CodUsuario'];\n    $PerifilUsuario = $_SESSION['Perfil'];\n    $UsuarioPHP = $_SESSION['Usuario'];\n    $NombreUsuario =$_SESSION['Nombre'];\n    $CorreoUsuario = $_SESSION['CorreoUsu'];\n                    \n\n  $secc = \"s1\";\n?>\n<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n    <link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"plugins/images/favicon.png\">\n    <title>NORMA 35 </title>\n    <!-- Bootstrap Core CSS -->\n    <link href=\"pixel-html/bootstrap/dist/css/bootstrap.min.css\" rel=\"stylesheet\">\n    <!-- Menu CSS -->\n    <link href=\"plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css\" rel=\"stylesheet\">\n    <!-- toast CSS -->\n    <link href=\"plugins/bower_components/toast-master/css/jquery.toast.css\" rel=\"stylesheet\">\n    <!-- morris CSS -->\n    <link href=\"plugins/bower_components/morrisjs/morris.css\" rel=\"stylesheet\">\n    <!-- animation CSS -->\n    <link href=\"pixel-html/css/animate.css\" rel=\"stylesheet\">\n    <!-- Custom CSS -->\n    <link href=\"pixel-html/css/style.css\" rel=\"stylesheet\">\n    <!-- color CSS -->\n    <link href=\"pixel-html/css/colors/blue.css\" id=\"theme\" rel=\"stylesheet\">\n    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->\n    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->\n    <!--[if lt IE 9]>\n    <script src=\"https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js\"></script>\n    <script src=\"https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js\"></script>\n<![endif]-->\n\n\n\n\n\n</head>\n\n<body>\n    <!-- Preloader -->\n    <div class=\"preloader\">\n        <div class=\"cssload-speeding-wheel\"></div>\n    </div>\n    <div id=\"wrapper\">\n        <!-- Navigation -->\n        <nav class=\"navbar navbar-default navbar-static-top m-b-0\">\n            <div class=\"navbar-header\"> <a class=\"navbar-toggle hidden-sm hidden-md hidden-lg \" href=\"javascript:void(0)\" data-toggle=\"collapse\" data-target=\".navbar-collapse\"><i class=\"ti-menu\"></i></a>\n                <div class=\"top-left-part\"><a class=\"logo\" href=\"index.html\"><b>\n                    <img src=\"plugins/images/pixeladmin-logo.png\" alt=\"home\" />\n                </b><span class=\"hidden-xs\"><img src=\"plugins/images/pixeladmin-text.png\" alt=\"home\" /></span></a></div>\n                <ul class=\"nav navbar-top-links navbar-left hidden-xs\">\n                    <li><a href=\"javascript:void(0)\" class=\"open-close hidden-xs waves-effect waves-light\"><i class=\"icon-arrow-left-circle ti-menu\"></i></a></li>\n                   \n                </ul>\n                <ul class=\"nav navbar-top-links navbar-right pull-right\">\n                    <li class=\"dropdown\"> <a class=\"dropdown-toggle waves-effect waves-light\" data-toggle=\"dropdown\" href=\"#\"><i class=\"icon-envelope\"></i>\n          <div class=\"notify\"><span class=\"heartbit\"></span><span class=\"point\"></span></div>\n          </a>\n                       \n                        <!-- /.dropdown-messages -->\n                    </li>\n                  \n                    <li class=\"dropdown\">\n                        <a class=\"dropdown-toggle profile-pic\" data-toggle=\"dropdown\" href=\"#\"> <img src=\"plugins/images/users/varun.jpg\" alt=\"user-img\" width=\"36\" class=\"img-circle\"><b class=\"hidden-xs\"><?php echo $Codigousuario; echo \"-\"; echo  $NombreUsuario; ?></b> </a>\n                        <ul class=\"dropdown-menu dropdown-user animated flipInY\">\n                            <li><a href=\"#\"><i class=\"ti-user\"></i> Mi Perfil</a></li>\n                            <li role=\"separator\" class=\"divider\"></li>\n                            <li><a href=\"index.php?op=logout\"><i class=\"fa fa-power-off\"></i> Salir</a></li>\n                        </ul>\n                        <!-- /.dropdown-user -->\n                    </li>\n        \n                    <li class=\"right-side-toggle\"> <a class=\"waves-effect waves-light\" href=\"javascript:void(0)\"><i class=\"ti-settings\"></i></a></li>\n                    <!-- /.dropdown -->\n                </ul>\n            </div>\n            <!-- /.navbar-header -->\n            <!-- /.navbar-top-links -->\n            <!-- /.navbar-static-side -->\n        </nav>\n        <!-- Left navbar-header -->\n        <div class=\"navbar-default sidebar\" role=\"navigation\">\n            <div class=\"sidebar-nav navbar-collapse slimscrollsidebar\">\n                <ul class=\"nav\" id=\"side-menu\">\n                \n                    <li class=\"user-pro\">\n                        <a href=\"#\" class=\"waves-effect\"><img src=\"plugins/images/users/varun.jpg\" alt=\"user-img\" class=\"img-circle\"> <span class=\"hide-menu\"> <?php echo $Codigousuario; echo \"-\"; echo  $NombreUsuario; ?> <span class=\"fa arrow\"></span></span>\n                        </a>\n                        <ul class=\"nav nav-second-level\">\n                            <li><a href=\"javascript:void(0)\"><i class=\"ti-user\"></i> Mi Perfil</a></li>\n                            <li><a href=\"index.php?op=logout\"><i class=\"fa fa-power-off\"></i> Salir</a></li>\n                        </ul>\n                    </li>\n                    <li class=\"nav-small-cap m-t-10\">-Menu Principal</li>\n                    <li><a href=\"index.html\" class=\"waves-effect\"><i class=\"linea-icon linea-basic fa-fw\" data-icon=\"v\"></i> <span class=\"hide-menu\">Inicio</span></a></li>\n                    \n                    <li><a href=\"inbox.html\" class=\"waves-effect\"><i data-icon=\")\" class=\"linea-icon linea-basic fa-fw\"></i> <span class=\"hide-menu\">Usuarios <span class=\"fa arrow\"></span></span></a>\n                        <ul class=\"nav nav-second-level\">\n                            <li><a href=\"chat.html\">Alta de Usuarios</a></li>\n                           \n                        </ul>\n                    </li>\n                </ul>\n            </div>\n           \n        </div>\n        <!-- Left navbar-header end -->\n        <!-- Page Content -->\n        <div id=\"page-wrapper\">\n            <div class=\"container-fluid\">\n              \n                <!-- /.row -->\n                <div class=\"row\">\n                    <h2>CPANEL ADMIN</h2>\n                    \n                   \n                    <div class=\"col-md-12\">\n                        <div class=\"white-box\">\n                           \n                                        <table id=\"example2\" class=\"display compact\" style=\"width:100%\">\n                                        <thead>\n                                        <tr>\n                                        <th>Usuario</th>\n                                        <th>Guía de Referencia I</th>\n                                        <th>Guía de Referencia V</th>\n                                        <th>Guía de Referencia II</th>\n                                        <th>Continua</th>\n                                        </tr>\n                                        </thead>\n                                        <tbody>\n                                        <?php\n                                        $sqlU = \"{call sp_INC_NOM35_ObtenerUsuarios ()}\";\n                                        $qryU = sqlsrv_query($con,$sqlU);\n                                        while( $row = sqlsrv_fetch_object( $qryU)) {\n                                            $NombrePHP = $row->Nombre;\n                                            $ApM_PHP = $row->ApMaterno;\n                                            $ApP_PHP = $row->ApPaterno;\n                                            $CodUsuarioPHP = $row->codUsuario;\n                                        ?> \n                                        <tr>\n                                        <td><?php echo $CodUsuarioPHP; echo \"-\"; echo $NombrePHP; echo \" \"; echo $ApP_PHP; echo \" \"; echo $ApM_PHP; ?></td>\n                                        <td>\n                                            <?php\n                                                $sqlG1 = \"{call sp_INC_NOM35_ContestaronGuia1 (?)}\";\n                                                $paramG1 = array(array($CodUsuarioPHP, SQLSRV_PARAM_IN));\n                                                $qryG1 = sqlsrv_query($con,$sqlG1,$paramG1);\n                                                while( $rowG1 = sqlsrv_fetch_object( $qryG1)){\n                                                     $ContestoGuia1PHP = $rowG1->ContestoGuia1;\n                                                     if($ContestoGuia1PHP == 1){\n                                                         echo \"TOMADO\";  \n                                                     }else{\n                                                         echo \"NO LO HA TOMADO\";   \n                                                     }\n\n                                                }\n                                            ?>\n                                        </td>\n                                        <td>\n                                             <?php\n                                                $sqlG5 = \"{call sp_INC_NOM35_ContestaronGuia5 (?)}\";\n                                                $paramG5 = array(array($CodUsuarioPHP, SQLSRV_PARAM_IN));\n                                                $qryG5 = sqlsrv_query($con,$sqlG5,$paramG5);\n                                                while( $rowG5 = sqlsrv_fetch_object( $qryG5)){\n                                                     $ContestoGuia5PHP = $rowG5->ContestoGuia5;\n                                                     if($ContestoGuia5PHP == 1){\n                                                         echo \"TOMADO\";  \n                                                     }else{\n                                                         echo \"NO LO HA TOMADO\";   \n                                                     }\n\n                                                }\n                                            ?>\n                                        </td>\n                                        <td>\n                                             <?php\n                                                $sqlG2 = \"{call sp_INC_NOM35_ContestaronGuia2 (?)}\";\n                                                $paramG2 = array(array($CodUsuarioPHP, SQLSRV_PARAM_IN));\n                                                $qryG2 = sqlsrv_query($con,$sqlG2,$paramG2);\n                                                while( $rowG2 = sqlsrv_fetch_object( $qryG2)){\n                                                     $ContestoGuia2PHP = $rowG2->ContestoGuia2;\n                                                     if($ContestoGuia2PHP == 1){\n                                                         echo \"TOMADO\";  \n                                                     }else{\n                                                         echo \"NO LO HA TOMADO\";   \n                                                     }\n\n                                                }\n                                            ?>\n                                        </td>\n                                        <td>\n                                            <?php\n                                                $sql01 = \"{call sp_INC_NOM35_ObtenerDatosGuia1 (?)}\";\n                                                $param01 = array(array($CodUsuarioPHP, SQLSRV_PARAM_IN));\n                                                $qry01 = sqlsrv_query($con,$sql01,$param01);\n                                                while($data01 = sqlsrv_fetch_object($qry01)){\n                                                         $ContinuaPHP = $data01->Continua;\n                                                            if($ContinuaPHP == 'si'){\n                                                                   echo  \"SI\"; \n                                                            }else if($ContinuaPHP == 'no'){\n                                                                   echo \"NO\"; \n                                                            }else{\n                                                                   echo \"NO HA INICIADO\";\n                                                            }\n                                                }   \n                                            ?>\n                                        </td>\n                                        </tr>\n                                        <?php\n                                            }\n                                        ?>\n                                        </tbody>\n                                        </table>\n\n                                </div>\n                            </div>\n                        </div>\n\n\n                        <div class=\"row\">\n                                    \n                                          <div class=\"bg-theme-dark m-b-15\">\n                            <div class=\"row weather p-20\">\n                                <div class=\"col-md-6 col-xs-6 col-lg-6 col-sm-6 m-t-40 p-t-20\">\n                                    <h3>&nbsp;</h3>\n                                    <h1>73<sup>°F</sup></h1>\n                                    <p class=\"text-white\">AHMEDABAD, INDIA</p>\n                                </div>\n                                <div class=\"col-md-6 col-xs-6 col-lg-6 col-sm-6 text-right\"> <i class=\"wi wi-day-cloudy-high\"></i>\n                                    <br/>\n                                    <br/> <b class=\"text-white\">SUNNEY DAY</b>\n                                    <p class=\"w-title-sub\">April 14</p>\n                                </div>\n                            </div>\n                        </div>\n\n\n                         <div class=\"col-md-4 col-lg-3 col-sm-6 col-xs-12\">\n                        <div class=\"white-box bg-purple m-b-15\">\n                            <h3 class=\"text-white box-title\">VISIT STATASTICS</h3>\n                            <div class=\"row\">\n                                <div class=\"col-md-6 col-sm-6 col-xs-6  m-t-30\">\n                                    <h1 class=\"text-white\">$347</h1>\n                                    <p class=\"light_op_text\">APRIL 2016</p> <b class=\"text-white\">(150 Sales)</b> </div>\n                                <div class=\"col-md-6 col-sm-6 col-xs-6\">\n                                    <div id=\"sales1\" class=\"text-center\"></div>\n                                </div>\n                            </div>\n                        </div>\n                    </div>\n\n\n                    </div>\n                            \n\n                        </div>\n\n\n                    </div>\n                </div>\n                <!--row -->\n                <!-- /.row -->\n               \n                <!-- .right-sidebar -->\n      \n                <!-- /.right-sidebar -->\n            </div>\n            <!-- /.container-fluid -->\n          <?php include(\"footer.php\"); ?>\n        </div>\n        <!-- /#page-wrapper -->\n    </div>\n    <!-- /#wrapper -->\n    <!-- jQuery -->\n    <script src=\"plugins/bower_components/jquery/dist/jquery.min.js\"></script>\n    <!-- Bootstrap Core JavaScript -->\n    <script src=\"pixel-html/bootstrap/dist/js/bootstrap.min.js\"></script>\n    <!-- Menu Plugin JavaScript -->\n    <script src=\"plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js\"></script>\n    <!--slimscroll JavaScript -->\n    <script src=\"pixel-html/js/jquery.slimscroll.js\"></script>\n    <!--Wave Effects -->\n    <script src=\"pixel-html/js/waves.js\"></script>\n    <!--Counter js -->\n    <script src=\"plugins/bower_components/waypoints/lib/jquery.waypoints.js\"></script>\n    <script src=\"plugins/bower_components/counterup/jquery.counterup.min.js\"></script>\n\n    <!-- Custom Theme JavaScript -->\n    <script src=\"pixel-html/js/custom.min.js\"></script>\n    <script src=\"pixel-html/js/dashboard1.js\"></script>\n    <!-- Sparkline chart JavaScript -->\n\n     <!-- Sparkline chart JavaScript -->\n    <script src=\"../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js\"></script>\n    <script src=\"../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js\"></script>\n\n\n\n\n    <script src=\"plugins/bower_components/toast-master/js/jquery.toast.js\"></script>\n    <script type=\"text/javascript\">\n    $(document).ready(function() {\n        $.toast({\n            heading: 'Bienvenido, Admin   ',\n            text: '<?php echo  $NombreUsuario; ?>',\n            position: 'top-right',\n            loaderBg: '#ff6849',\n            icon: 'info',\n            hideAfter: 3500,\n            stack: 6\n        })\n    });\n    </script>\n    <!--Style Switcher -->\n    \n    <script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js\"></script>\n<script type=\"text/javascript\" language=\"javascript\" src=\"https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js\"></script>\n\n<link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css\">\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.min.css\">\n\n\n<script type=\"text/javascript\" language=\"javascript\" class=\"init\">\n $(document).ready(function() {\n        var selected = [];\n\n        $('#example2').DataTable( {\n          dom: 'Bfrtip',\n        buttons: [\n            'copy', 'csv', 'excel', 'pdf', 'print'\n        ],\n            stateSave: true,\n            \"order\": [[ 1, \"desc\" ]],\n        } );\n\n        $('#example tbody').on('click', 'tr', function () {\n            var id = this.id;\n            var index = $.inArray(id, selected);\n\n            if ( index === -1 ) {\n                selected.push( id );\n            } else {\n                selected.splice( index, 1 );\n            }\n\n            $(this).toggleClass('selected');\n        } );\n\n    } )\n\n\n</script>\n\n</body>\n\n</html>\n",
+			"file": "admin.php",
+			"file_size": 19446,
+			"file_write_time": 132167818446201853,
+			"settings":
+			{
+				"buffer_size": 19060,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: isnt",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 130.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/inetpub/wwwroot/cuestionario",
+		"/C/inetpub/wwwroot/cuestionario/html"
+	],
+	"file_history":
+	[
+		"/C/inetpub/wwwroot/cuestionario/acciones.php",
+		"/C/inetpub/wwwroot/cuestionario/cuestionario2.php",
+		"/G/Mi unidad/NOTAS.txt",
+		"/C/inetpub/wwwroot/cuestionario/sistema.php",
+		"/C/inetpub/wwwroot/cuestionario/cuestionario5.php",
+		"/C/inetpub/wwwroot/cuestionario/cuestionario3.php",
+		"/C/inetpub/wwwroot/cuestionario/verificar.js",
+		"/C/inetpub/wwwroot/cuestionario/includes/bd.php",
+		"/C/inetpub/wwwroot/cuestionario/fin.php",
+		"/C/inetpub/wwwroot/cuestionario/Encriptar.php",
+		"/C/inetpub/wwwroot/cuestionario/respaldo_verificar.js",
+		"/C/inetpub/wwwroot/cuestionario/cuestinario5.php",
+		"/C/inetpub/wwwroot/cuestionario/index.php",
+		"/C/inetpub/wwwroot/cuestionario/Desencriptar.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/ResultadoGeneral.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/detalles.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/jefes.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/procesar.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/gerentes.php",
+		"/C/inetpub/wwwroot/Tickets/includes/paneles_tickets.php",
+		"/C/inetpub/wwwroot/EDMC/class/db.php",
+		"/C/inetpub/wwwroot/EDMC/class/class_login.php",
+		"/C/xampp/htdocs/vacaciones/sistema/admin/index.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/GuardaPlanAccion.php",
+		"/C/inetpub/wwwroot/Tickets/ABCTickets.php",
+		"/C/inetpub/wwwroot/Tickets/sistema.php",
+		"/C/inetpub/wwwroot/Tickets/includes/menu_lateral.php",
+		"/C/inetpub/wwwroot/Tickets/includes/form_nuevo_ticket.php",
+		"/C/inetpub/wwwroot/Tickets/verIncidentes.php",
+		"/C/inetpub/wwwroot/Tickets/includes/menu_lateral2.php",
+		"/C/inetpub/wwwroot/Tickets/includes/menu_head2.php",
+		"/C/inetpub/wwwroot/cuestionario/scripts2.js",
+		"/C/inetpub/wwwroot/cuestionario/scripts.js",
+		"/C/inetpub/wwwroot/Tickets/verRazonSocial.php",
+		"/C/inetpub/wwwroot/Tickets/verFormulario2.php",
+		"/C/inetpub/wwwroot/cuestionario/footer.php",
+		"/C/xampp/htdocs/vacaciones/session_init.php",
+		"/C/inetpub/wwwroot/cuestionario/old/index_resp.php",
+		"/C/inetpub/wwwroot/cuestionario/old/js/scripts.js",
+		"/C/inetpub/wwwroot/cuestionario/old/js/verificar.js",
+		"/C/inetpub/wwwroot/cuestionario/old/index.php",
+		"/C/Users/Michaus/Desktop/14_1144_201910010_27.xml",
+		"/C/inetpub/wwwroot/Tickets/x2.php",
+		"/C/inetpub/wwwroot/Tickets/xx1.php",
+		"/C/inetpub/wwwroot/Tickets/ABCTickets.php_resp.php",
+		"/C/inetpub/wwwroot/Tickets/validarAddPeridoyUbicacion.txt",
+		"/C/inetpub/wwwroot/prueba/index.php",
+		"/C/inetpub/wwwroot/BuzonSugerencias/envia_correo.php",
+		"/C/inetpub/wwwroot/Tickets/includes/bd.php",
+		"/C/inetpub/wwwroot/Tickets/verEjecutivos.php",
+		"/C/inetpub/wwwroot/Tickets/modalasignar.php",
+		"/C/inetpub/wwwroot/Tickets/desencriptar.php",
+		"/C/inetpub/wwwroot/Tickets/pass_encriptado.php",
+		"/C/inetpub/wwwroot/Tickets/modalvobo.php",
+		"/C/inetpub/wwwroot/Tickets/includes/resp_paneles_tickets.php",
+		"/C/inetpub/wwwroot/Tickets/resp_modal.php",
+		"/C/inetpub/wwwroot/Tickets/modal.php",
+		"/C/inetpub/wwwroot/EDMC/v1/usuario/procesar.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/evaluacion.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/admin.php",
+		"/C/inetpub/wwwroot/EDMC/v1/usuario/evaluacion.php",
+		"/C/inetpub/wwwroot/Suite-Local/ABCTickets.php",
+		"/C/inetpub/wwwroot/Suite-Local/verFormulario2.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/modal.php",
+		"/C/inetpub/wwwroot/EDMC/v1/usuario/usuario.php",
+		"/C/inetpub/wwwroot/EDMC/index.php",
+		"/C/Users/Michaus/Desktop/PLANTILLA sQL.sql",
+		"/C/inetpub/wwwroot/EDMC/sistema/theme/assets/css/main.css",
+		"/C/inetpub/wwwroot/Tickets/includes/contratosxvencer.php",
+		"/C/inetpub/wwwroot/EDMC/sistema/cerrar_session.php",
+		"/C/inetpub/wwwroot/EDMC/v1/usuario/cerrar_sesion.php",
+		"/C/inetpub/wwwroot/EDMC/v1/index.php",
+		"/C/inetpub/wwwroot/EDMC/signin.css",
+		"/C/inetpub/wwwroot/EDMC/class/conexion.php",
+		"/C/inetpub/wwwroot/EDMC/usuario/procesar_resp.php",
+		"/C/inetpub/wwwroot/EDMC/usuario/procesar.php",
+		"/C/inetpub/wwwroot/EDMC/admin/index.php",
+		"/C/inetpub/wwwroot/EDMC/admin/funciones.php",
+		"/C/inetpub/wwwroot/EDMC/usuario/evaluacion.php",
+		"/C/inetpub/wwwroot/EDMC/usuario/funciones.php",
+		"/C/inetpub/wwwroot/EDMC/usuario/ResultadoGeneral.php",
+		"/C/inetpub/wwwroot/EDMC/conexion.php",
+		"/C/inetpub/wwwroot/EDMC/conex.php",
+		"/C/inetpub/wwwroot/EDMC/class/clases.php",
+		"/C/inetpub/wwwroot/EDMC/class/clases_php.php",
+		"/C/inetpub/wwwroot/Tickets/includes/menu_head.php",
+		"/G/Mi unidad/PLANTILLA ACTIVOS 230919.xlsx",
+		"/C/inetpub/wwwroot/cuestionario/index_resp.php",
+		"/G/Mi unidad/POLITICAS",
+		"/C/inetpub/wwwroot/cuestionario/bootstrap-4.3.1/js/tests/index.html",
+		"/C/inetpub/wwwroot/cuestionario/bootstrap-4.3.1/site/index.html",
+		"/C/inetpub/wwwroot/Tickets/modal.css",
+		"/D/vacaciones/sistema/admin/index.php",
+		"/D/Suite-Local/includes/detalles_rep.php",
+		"/D/Suite-Local/includes/detalles.php",
+		"/D/Suite-Local/Suite-Local/ABCTickets.php",
+		"/D/Suite-Local/ABCTickets.php",
+		"/D/Suite-Local/AdmonTickets.php",
+		"/D/Suite-Local/modal.php",
+		"/F/Desarrollos/Suite-Local/includes/detalles_rep.php",
+		"/C/inetpub/wwwroot/Tickets/includes/alertas.php",
+		"/C/inetpub/wwwroot/Tickets/includes/detalles_rep.php",
+		"/C/inetpub/wwwroot/Tickets/includes/detalles.php",
+		"/C/xampp/htdocs/Suite/borrar.php",
+		"/C/inetpub/wwwroot/Suite/index.php",
+		"/C/inetpub/wwwroot/Suite-Local/modalvobo.php",
+		"/C/inetpub/wwwroot/Suite-Local/AdmonTickets.php",
+		"/C/inetpub/wwwroot/Suite-Local/desencriptar.php",
+		"/C/inetpub/wwwroot/Suite-Local/modal.php",
+		"/C/inetpub/wwwroot/Suite-Local/index.php",
+		"/C/inetpub/wwwroot/Suite-Local/includes/bd.php"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"qryGuardaGuia5",
+			"sqlGuardaGuia5",
+			"\n\t\t",
+			",\n\t\t",
+			"nvarchar(2)",
+			" \n",
+			"\n      ",
+			"]",
+			"[",
+			"\n",
+			"p20",
+			"$p20",
+			"$Continua",
+			"qry01",
+			"param01",
+			"sql01",
+			"Guia5",
+			"G5",
+			"Guia1",
+			"G1",
+			"echo",
+			"qryU",
+			"sqlU",
+			",",
+			"\n      ",
+			",",
+			"]",
+			"[",
+			",",
+			"sql01",
+			",",
+			"onchange=\"verificar()\"",
+			"nvarchar(MAX)",
+			"\n    ",
+			"]",
+			"[",
+			"continuar",
+			"20-24",
+			" $Continua",
+			"$Continua;",
+			"24",
+			"NO",
+			"SI",
+			"Ninguno",
+			"NO",
+			"SI",
+			"NO",
+			"SI",
+			"NO",
+			"SI",
+			"Profesional o técnico",
+			"NO",
+			"SI",
+			"\" ",
+			"accion",
+			"nvarchar(2)",
+			" nvarchar(2)",
+			"\n",
+			"]",
+			",[",
+			"INT",
+			"$",
+			"= $",
+			"qryGuardaTicket2",
+			"sqlGuardaTicket2",
+			"¿Ha disminuido su interés en sus actividades cotidianas?/label>",
+			"¿Ha disminuido su interés en sus actividades cotidianas?/label> ",
+			"IIRecuerdos",
+			"true",
+			"verificar",
+			"ñ",
+			"20",
+			"form",
+			"20",
+			"II.- RECUERDOS PERSISTENTES SOBRE EL ACONTECIMIENTO (DURANTE EL ÚLTIMO MES):",
+			"10",
+			"ñ",
+			"qryAsignados",
+			"sqlAsignados",
+			"usuario"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Encriptar.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1164,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								725,
+								715
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "admin.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19060,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16518,
+								16518
+							]
+						],
+						"settings":
+						{
+							"SL.14.region_keys":
+							[
+							],
+							"SL.24.region_keys":
+							[
+							],
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content"
+							],
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4491.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 51.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "Cuestionario.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"sis",
+				"sistema.php"
+			],
+			[
+				"menu",
+				"includes\\menu_lateral.php"
+			],
+			[
+				"verIncidentes",
+				"verIncidentes.php"
+			],
+			[
+				"pane",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"nue",
+				"includes\\form_nuevo_ticket.php"
+			],
+			[
+				"form",
+				"verFormulario2.php"
+			],
+			[
+				"abc",
+				"ABCTickets.php"
+			],
+			[
+				"nuev",
+				"includes\\form_nuevo_ticket.php"
+			],
+			[
+				"ver",
+				"verIncidentes.php"
+			],
+			[
+				"formula",
+				"verFormulario2.php"
+			],
+			[
+				"verRazonSocial.php",
+				"verRazonSocial.php"
+			],
+			[
+				"modal",
+				"modal.php"
+			],
+			[
+				"verEjecutivos.php",
+				"verEjecutivos.php"
+			],
+			[
+				"asigna",
+				"modalasignar.php"
+			],
+			[
+				"PANEKL",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"ABCTickets.php",
+				"ABCTickets.php"
+			],
+			[
+				"verFormulario2.php",
+				"verFormulario2.php"
+			],
+			[
+				"FORMN",
+				"includes\\form_nuevo_ticket.php"
+			],
+			[
+				"verIncidentes.php",
+				"verIncidentes.php"
+			],
+			[
+				"form_n",
+				"includes\\form_nuevo_ticket.php"
+			],
+			[
+				"DES",
+				"desencriptar.php"
+			],
+			[
+				"PASS",
+				"pass_encriptado.php"
+			],
+			[
+				"modalvobo",
+				"modalvobo.php"
+			],
+			[
+				"resp",
+				"includes\\resp_paneles_tickets.php"
+			],
+			[
+				"panele",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"res",
+				"resp_modal.php"
+			],
+			[
+				"menu_head",
+				"includes\\menu_head2.php"
+			],
+			[
+				"head",
+				"includes\\menu_head.php"
+			],
+			[
+				"pa",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"index",
+				"index.php"
+			],
+			[
+				"PANEL",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"des",
+				"desencriptar.php"
+			],
+			[
+				"PANELE",
+				"includes\\paneles_tickets.php"
+			],
+			[
+				"alertas",
+				"includes\\alertas.php"
+			],
+			[
+				"dese",
+				"Suite-Local\\desencriptar.php"
+			],
+			[
+				"desencriptar.php",
+				"Suite-Local\\desencriptar.php"
+			],
+			[
+				"MODAL",
+				"Suite-Local\\modal.php"
+			],
+			[
+				"ABC",
+				"Suite-Local\\ABCTickets.php"
+			],
+			[
+				"PANELES",
+				"Suite-Local\\includes\\paneles_tickets.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 341.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
